@@ -1,19 +1,19 @@
 # Implementação de Criptografia e Autenticação Segura
 
-* Telas
-  [  ] Criar tela inicial
-  [  ] Criar tela de cadastro de usuário
-  [  ] Criar tela de login de usuário
-  [  ] Criar tela de contatos
-  [  ] Criar tela de conversas
+## Telas
+* [ ] Criar tela inicial
+* [ ] Criar tela de cadastro de usuário
+* [ ] Criar tela de login de usuário
+* [ ] Criar tela de contatos
+* [ ] Criar tela de conversas
 
-* Banco de Dados
-  [  ] Tabela de usuário
-  [  ] Tabela de contatos
-  [  ] Tabela de sessão
-  [  ] Tabela de messagens
+## Banco de Dados
+* [ ] Tabela de usuário
+* [ ] Tabela de contatos
+* [ ] Tabela de sessão
+* [ ] Tabela de messagens
 
-# Descrição
+## Descrição
 * Na tela inicial o usuário poderá ir para fazer cadastro. Ao digitar
   o cadastro, aplicação verificará usuário repetido e enviará um email com
   código. Após a aceitação do código, o usuário poderá efetuar o login.
@@ -24,7 +24,7 @@
 * Ao selecionar um contato, a aplicação deve permitir a visualização das
   conversas do usuário com o contato. 
 
-# Descrição
+## Requisitos
 * A aplicação deve amazenar o hash da senha. (sal aleatório)
 * A aplicação utilizar Token para autentificação.
 * A aplicação deve criptografar conversas individuais. (Usando AES & RSA)
