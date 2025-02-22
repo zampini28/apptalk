@@ -2,11 +2,33 @@
 
 {% block head %}
 <title>Home</title>
+<link rel=stylesheet href={{ url_for("static", filename="style.css") }}>
 {% endblock %}
 
 {% block body %}
-<h1>Home</h1>
-<a href=/login>login</a>
-<br>
-<a href=/cadastro>cadastro</a>
+<div class=background-main>
+  <header class=header-main>
+    <div class=header-container>
+      <div class=area-logo>
+        <a href="">AppTalk</a> <!-- TODO: change it for an atually logo -->
+      </div>
+    </div>
+  <section class=main-display>
+    <div class=title-container>
+      <h1 class=title-text>AppTalk</h1>
+    </div>
+    <hr class=divider>
+    <div class=sub-title-text-container>
+      <p class=sub-title-text>Um lugar para conversas significativas! Conecte-se com seus colegas e amigos e construam relação e aprofunde seus interesses.</p>
+    </div>
+    <div class=button-container>
+      <a id=login href=/login class=link>
+        <span class=button-text>Login</span>
+      </a>
+      <a id=signup href=/cadastro class=link>
+        <span class=button-text>Cadastre-se</span>
+      </a>
+    </div>
+  </section>
+</div>
 {% endblock %}
