@@ -1,0 +1,21 @@
+{% extends "_base.html" %}
+
+{% block head %}
+<title>Cadastro</title>
+{% endblock %}
+
+{% block body %}
+<h1>Cadastro</h1>
+<form action=/session method=post>
+  <input name=name type=text placeholder="Nome completo" required>
+  <br>
+  <input name=email type=email placeholder=Email required>
+  <br>
+  <input name=username type=text placeholder="Nome de usuário" required>
+  <br>
+  <input name=password type=password placeholder=Senha required>
+  <br>
+  <input type=submit value=Enviar!>
+  <input name=action type=hidden value=signup>
+</form>
+{% endblock %}
