@@ -28,15 +28,15 @@ def chat(username):
     return render_template("chat.html", username=username)
 
 @app.errorhandler(404)
-def page_not_found():
+def page_not_found(error):
     return "Page not found", 404
 
 @app.errorhandler(500)
-def internal_error():
+def internal_error(error):
     return "Internal Error", 500
 
 @app.errorhandler(501)
-def not_implemented():
+def not_implemented(error):
     return "Not Implemented", 501
 
 ## api server
