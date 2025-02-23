@@ -6,6 +6,15 @@
 
 {% block body %}
 <h1>Cadastro</h1>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+    <h3 style="color: red;">{{ message }}</h3>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
 <form action=/session method=post>
   <input name=name type=text placeholder="Nome completo" required>
   <br>
