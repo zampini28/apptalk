@@ -1,0 +1,32 @@
+[project]
+name = "apptalk"
+version = "0.1.0"
+description = "Um aplicativo básico de mensagem focado na segurança."
+readme = "README.md"
+license = {file = "LICENSE"}
+maintainers = [{name = "Caio Martins Zampini", email = "caiozampini@gmail.com"}]
+classifiers = [
+  "Development Status :: 4 - Beta", 
+  "Programming Language :: Python :: 3.9"
+]
+dependencies = [
+    "flask==3.1.0",
+    "bcrypt==4.2.1",
+    "PyJWT==2.10.1"
+]
+requires-python = ">= 3.9"
+keywords = ["python", "security", "message"]
+
+[project.urls]
+Documentation = "https://github.com/zampini28/apptalk"
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["error"]
+
+[tool.coverage.run]
+branch = true
+source = ["tests"]
