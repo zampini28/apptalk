@@ -1,3 +1,4 @@
+![GitHub license](https://img.shields.io/github/license/jjcapellan/flask-examples-pyjwt.svg)
 # Implementação de Criptografia e Autenticação Segura
 
 ## Telas
