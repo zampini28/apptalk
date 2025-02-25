@@ -5,7 +5,7 @@ import secrets
 from . import database as db
 from . import routes
 
-def create_app():
+def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
         host       = "0.0.0.0",
@@ -13,6 +13,8 @@ def create_app():
         SECRET_KEY = secrets.token_hex(),
         DATABASE   = os.path.join(app.instance_path, "apptalk.sqlite")
     )
+
+    if test_config: app.config.update(test_config)
 
     try: os.makedirs(app.instance_path)
     except OSError: pass
