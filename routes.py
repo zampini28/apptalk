@@ -1,109 +1,63 @@
-from flask import render_template, request, redirect, url_for, flash, session, g
-from app import app
-from database import get_connection
-import sqlite3
-import uuid
+from flask import (
+    Blueprint, render_template, request, redirect, url_for, flash
+)
+from .database import get_db
+from uuid import uuid4
 
-app.secret_key = str(uuid.uuid4())
+bp = Blueprint('main', __name__)
 
-## web server
-@app.route("/")
+SQL_INSERT_USER = \
+"INSERT INTO users(id, name, email, username, password) VALUES (?,?,?,?,?)"
+
+SQL_SELECT_USER = \
+"SELECT * FROM users WHERE username = ?"
+
+@bp.route("/")
 def home():
     return render_template("index.html")
 
-@app.route("/login")
-def login():
-    return render_template("login.html")
-
-@app.route("/cadastro")
+@bp.route("/cadastro", methods=("GET", "POST"))
 def signup():
+    if request.method == "POST":
+        name     = request.form["name"]
+        email    = request.form["email"]
+        username = request.form["username"]
+        password = request.form["password"]
+        db, err = get_db(), None
+
+        if not name:       err = "name is required"
+        elif not email:    err = "email is required"
+        elif not username: err = "username is required"
+        elif not password: err = "password is required"
+
+        if not err:
+            try:
+                db.execute(SQL_INSERT_USER,
+                           (str(uuid4), name, email, username, password,))
+                db.commit()
+            except db.IntegrityError:
+                err = f"user {username} is already registered"
+            else:
+                return redirect(url_for("main.login"))
+        flash(err)
     return render_template("signup.html")
 
-@app.route("/contatos")
-def contacts():
-    return render_template("contacts.html")
 
-@app.route("/conversa/<username>")
-def chat(username):
-    return render_template("chat.html", username=username)
+@bp.route("/login", methods=("GET", "POST"))
+def login():
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
+        db, err = get_db(), None
 
-@app.errorhandler(404)
-def page_not_found(error):
-    return "Page not found", 404
+        user = db.execute(SQL_SELECT_USER, (username,)).fetchone()
 
-@app.errorhandler(500)
-def internal_error(error):
-    return "Internal Error", 500
+        if not user or user["password"] != password:
+            err = "incorrect username or password"
 
-@app.errorhandler(501)
-def not_implemented(error):
-    return "Not Implemented", 501
+        if not err:
+            return render_template("contacts.html")
 
-## api server
-@app.route("/session", methods=["POST"])
-def session_route():
-    action   = request.form.get("action")
-    name     = request.form.get("name")
-    email    = request.form.get("email")
-    username = request.form.get("username")
-    password = request.form.get("password")
+        flash(err)
+    return render_template("login.html")
 
-    if action == "signup":
-        if register_user(name, email, username, password):
-            return redirect(url_for("contacts"))
-        else:
-            return redirect(url_for("signup"))
-
-    elif action == "login":
-        if validate_login(username, password):
-            session['user'] = username
-            return redirect(url_for("contacts"))
-        else:
-            flash("Invalid credentials", "failed")
-            return redirect(url_for("login"))
-
-    return internal_error()
-
-def register_user(name, email, username, password):
-    con, cur = get_connection()
-
-    try:
-        cur.execute("""INSERT INTO users (name, email, username, password)
-                       VALUES (?,?,?,?)""", (name, email, username, password,))
-        con.commit()
-        return True
-
-    except sqlite3.IntegrityError:
-        flash("Username already exists", "failed")
-
-    except sqlite3.Error as e:
-        flash(f"Error during signup: {e}", "failed")
-
-    con.close()
-    return False
-
-
-def validate_login(username, password):
-    con, cur = get_connection()
-    try:
-        cur.execute("""SELECT username FROM users WHERE username = ? AND password = ?""", (username, password))
-        return bool(cur.fetchone())
-
-    except sqlite3.Error as e:
-        flash(f"Error during login: {e}", "failed")
-
-    finally:
-        con.close()
-    return False
-
-@app.before_request
-def load_user():
-    if 'user' in session:
-        g.user = session['user']
-    else:
-        g.user = None
-
-@app.route("/logout")
-def logout():
-    session.pop('user', None)
-    return redirect(url_for("home"))
