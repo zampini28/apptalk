@@ -15,7 +15,7 @@
   {% endif %}
 {% endwith %}
 
-<form action=/session method=post>
+<form method=post>
   <input name=name type=text placeholder="Nome completo" required>
   <br>
   <input name=email type=email placeholder=Email required>
@@ -25,6 +25,5 @@
   <input name=password type=password placeholder=Senha required>
   <br>
   <input type=submit value=Enviar!>
-  <input name=action type=hidden value=signup>
 </form>
 {% endblock %}

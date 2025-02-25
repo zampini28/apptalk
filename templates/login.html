@@ -15,12 +15,11 @@
   {% endif %}
 {% endwith %}
 
-<form action=/session method=post>
+<form method=post>
   <input name=username type=text placeholder="Nome de usuário" required>
   <br>
   <input name=password type=password placeholder=Senha required>
   <br>
   <input type=submit value=Enviar!>
-  <input name=action type=hidden value=login>
 </form>
 {% endblock %}

@@ -33,10 +33,10 @@ def signup():
         if not err:
             try:
                 db.execute(SQL_INSERT_USER,
-                           (str(uuid4), name, email, username, password,))
+                           (str(uuid4()), name, email, username, password,))
                 db.commit()
-            except db.IntegrityError:
-                err = f"user {username} is already registered"
+            except db.IntegrityError as e:
+                err = f"user {username} is already registered {e}"
             else:
                 return redirect(url_for("main.login"))
         flash(err)
@@ -56,8 +56,12 @@ def login():
             err = "incorrect username or password"
 
         if not err:
-            return render_template("contacts.html")
+            return redirect(url_for("main.contacts"))
 
         flash(err)
     return render_template("login.html")
 
+
+@bp.route("/contatos")
+def contacts():
+    return render_template("contacts.html")
