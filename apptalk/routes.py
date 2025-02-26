@@ -36,7 +36,7 @@ def signup():
                            (str(uuid4()), name, email, username, password,))
                 db.commit()
             except db.IntegrityError as e:
-                err = f"user {username} is already registered {e}"
+                err = f"Usuário {username} já está registrado!"
             else:
                 return redirect(url_for("main.login"))
         flash(err)
@@ -53,7 +53,7 @@ def login():
         user = db.execute(SQL_SELECT_USER, (username,)).fetchone()
 
         if not user or user["password"] != password:
-            err = "incorrect username or password"
+            err = "Usuário e/ou senha estão incorretos."
 
         if not err:
             return redirect(url_for("main.contacts"))
