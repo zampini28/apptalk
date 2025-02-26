@@ -19,8 +19,9 @@ def close_db(_):
 
 def init_db():
     db = get_db()
-    for fn in [f for f in os.listdir("sql") if f.endswith(".sql")]:
-        with current_app.open_resource(os.path.join("sql", fn)) as f:
+    sql_dir = os.path.join(os.path.dirname(os.getcwd()), "sql")
+    for fn in [f for f in os.listdir(sql_dir) if f.endswith(".sql")]:
+        with current_app.open_resource(os.path.join(sql_dir, fn)) as f:
             db.executescript(f.read().decode("utf8"))
 
 @click.command("init-db")
