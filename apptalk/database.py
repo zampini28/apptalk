@@ -1,7 +1,6 @@
 from flask import g, current_app
-import click
-import sqlite3
-import os
+from datetime import datetime
+import click, sqlite3, os
 
 sqlite3.register_converter("timestamp",
                            lambda x : datetime.fromisoformat(x.decode()))
@@ -14,13 +13,11 @@ def get_db():
     return g.db
 
 def close_db(_):
-    db = g.pop("db", None)
-    if db: db.close()
+    if (db := g.pop("db", None)): db.close()
 
 def init_db():
-    db = get_db()
-    sql_dir = os.path.abspath(os.path.join(os.getcwd(), "sql"))
-    for fn in [f for f in os.listdir(sql_dir) if f.endswith(".sql")]:
+    db, sql_dir = get_db(), os.path.abspath(os.path.join(os.getcwd(), "sql"))
+    for fn in filter(lambda f: f.endswith(".sql"), os.listdir(sql_dir)):
         with current_app.open_resource(os.path.join(sql_dir, fn)) as f:
             db.executescript(f.read().decode("utf8"))
 
