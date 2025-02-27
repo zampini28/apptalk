@@ -6,12 +6,20 @@
 
 {% block body %}
 <h1>Login</h1>
-<form action=/session method=post>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+    <h3 style="color: red;">{{ message }}</h3>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+<form method=post>
   <input name=username type=text placeholder="Nome de usuário" required>
   <br>
   <input name=password type=password placeholder=Senha required>
   <br>
   <input type=submit value=Enviar!>
-  <input name=action type=hidden value=login>
 </form>
 {% endblock %}

@@ -1,0 +1,19 @@
+version: '3'
+services:
+  flask-app:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    command: >
+      bash -c "python -m flask --app apptalk init-db
+      && python -m flask --app apptalk run --host=0.0.0.0 --port=5000 --debug"
+
+  flask-test:
+    build: .
+    volumes:
+      - .:/app
+    command: bash -c "python -m pytest -v"
+
+
