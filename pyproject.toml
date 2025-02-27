@@ -33,4 +33,8 @@ filterwarnings = ["error"]
 
 [tool.coverage.run]
 branch = true
-source = ["tests"]
+source = ["apptalk"]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
