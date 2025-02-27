@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from .database import get_db
+from .encryption import hashpw, checkpw
 from uuid import uuid4
 
 bp = Blueprint("main", __name__)
@@ -23,6 +24,8 @@ def signup():
         else:
             db = get_db()
             try:
+                username, password = fields["username"], fields["password"]
+                fields["password"] = hashpw(username, password)
                 db.execute(SQL_INSERT_USER, (str(uuid4()), *fields.values()))
                 db.commit()
                 return redirect(url_for("main.login"))
@@ -34,9 +37,10 @@ def signup():
 @bp.route("/login", methods=("GET", "POST"))
 def login():
     if request.method == "POST":
+        # hash_pw - user - pw
         username, password = request.form["username"], request.form["password"]
         user = get_db().execute(SQL_SELECT_USER, (username,)).fetchone()
-        if not user or user["password"] != password:
+        if not user or not checkpw(user["password"], username, password):
             flash("Usuário e/ou senha estão incorretos.")
         else: return redirect(url_for("main.contacts"))
     return render_template("login.html")
