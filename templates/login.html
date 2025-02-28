@@ -2,24 +2,30 @@
 
 {% block head %}
 <title>Login</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='main.css') }}">
 {% endblock %}
 
 {% block body %}
-<h1>Login</h1>
 
-{% with messages = get_flashed_messages() %}
+<div class="container">
+
+  {% with messages = get_flashed_messages() %}
   {% if messages %}
-    {% for message in messages %}
-    <h3 style="color: red;">{{ message }}</h3>
-    {% endfor %}
-  {% endif %}
-{% endwith %}
+  {% for message in messages %}
+  <p id="errorlabel" class="title-header" style="color: red;">{{ message }}</p>
+  {% endfor  %}
+  {% endif  %}
+  {% endwith  %}
 
-<form method=post>
-  <input name=username type=text placeholder="Nome de usuário" required>
-  <br>
-  <input name=password type=password placeholder=Senha required>
-  <br>
-  <input type=submit value=Enviar!>
-</form>
+  <form method=post>
+    <div id="subcontainer" class="subcontainer">
+      <input name=username class="flow-input" type="text" placeholder="Usuário" autocomplete="on" spellcheck="false" title="Digite seu usuário" autofocus required id="username" value="" autocapitalize="none" autocorrect="off">
+      <input name=password class="flow-input" type="password" id="password" placeholder="Senha" autocomplete="current-password" spellcheck="false" title="Digite sua senha" value="" autocapitalize="no" autocorrect="off" required autofocus>
+      <button class="commitForm disabled" id="commit">Enviar</button>
+    </div>
+  </form>
+</div>
+
+
+
 {% endblock %}

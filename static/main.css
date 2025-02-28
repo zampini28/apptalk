@@ -1,0 +1,170 @@
+@font-face {
+  font-family: 'Geist';
+  src: url('GeistVF.ttf') format('truetype')
+}
+:root {
+    /*
+    --bg-color: #d6f4ff;
+    --bnt-disable-color: #46abe5b0;
+    --bnt-color: #046ee5;
+
+    --bg-color-not: #d6f4ff;
+    --bnt-disable-color-not: #46abe5b0;
+    --bnt-color-not: #046ee5;
+    --bg-color: #ffb49c;
+    --bnt-disable-color: #f78c6f;
+    --bnt-color: #F4623A;
+    */
+
+    --commitForm-on-text-color: #0a0a0a;
+    --bg-color-not: #d6f4ff;
+    --bnt-disable-color-not: #46abe5b0;
+    --bnt-color-not: #046ee5;
+    --bg-color: #111111;
+    --user-input-color: whitesmoke;
+    --sub-bg-color: #232323;
+    --bnt-disable-color: #a1a1a1;
+    --bnt-color: #a1a1a1;
+    --input-bg-color: #373737;
+    --default-text-color: #adadad;
+    --error-text-color: #DD11DD;
+
+    --commitForm-text-color: #0a0a0a;
+
+    --commit-not-disable-bg-color: #ededed;
+
+    --disable-text-color: #0a0a0a;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; 
+}
+  
+body, html {
+  background-color: var(--bg-color);
+}
+
+body {
+    width: 100vw;
+    /* height: 100vh; */
+    /* background-color: #f0f2f5; */
+    /* background-color: #BECEDD; */
+    /* background-color: rgb(190, 206, 221); */
+    /* background-color: #96C9DC; */
+    /* background-color: var(--bg-color); */
+    font-family: 'Geist';
+} 
+   
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    height: 100vh;
+}
+  
+.subcontainer {
+    display: flex;
+    background-color: var(--sub-bg-color);
+    max-width: 350px;
+    padding: 20px;
+    border-radius: 5px;
+    width: 100%;
+    box-shadow: 0 1px 2px #0003;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 4px 8px;
+}
+  
+.flow-input {
+    outline: none;
+    padding: 16px 20px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: var(--input-bg-color);
+    border: none;
+    color: var(--user-input-color);
+}
+  
+.flow-input:focus {
+    outline: var(--bnt-color) solid 2px;
+}
+  
+.title-header {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--default-text-color);
+}
+  
+a {
+    text-decoration: none;
+    color: var(--default-text-color);
+}
+  
+.err-msg {
+    font-size: var(--default-text-color);
+    color: var(--error-text-color);
+}
+  
+.text-registrar {
+    font-size: 16px;
+    color: var(--default-text-color);
+}
+  
+.link-registrar {
+    cursor: pointer;
+}
+  
+.commitForm {
+    padding: 16px 29px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    background: var(--commit-not-disable-bg-color);
+    color: var(--commitForm-text-color);
+    font-weight: 600;
+    font-size: 16px;
+    max-width: 350px;
+    transition: 0.3s;
+}
+  
+.disabled {
+    background: var(--bnt-disable-color);
+    padding: 16px 29px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    color: var(--disable-text-color);
+    font-weight: 600;
+    font-size: 16px;
+    max-width: 350px;
+}
+
+.commitForm:hover {
+    transform: translateY(-2px);
+    border-color: rgba(0, 0, 0, 0.15);
+    border: initial;
+    box-shadow: rgba(0, 0, 0, 0.8) 0 8px 24px;
+    color: var(--commitForm-on-text-color);
+}
+  
+.commitForm:active {
+    border-color: rgba(0, 0, 0, 0.15);
+    border: initial;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 4px 8px;
+    color: rgba(0, 0, 0, 0.65);
+    transform: translateY(0);
+}
+  
+  
+  
+  /* https://getcssscan.com/css-buttons-examples */
