@@ -33,4 +33,25 @@ def test_login(client, auth, username, password):
     assert response.status_code == 302
     assert response.headers["Location"] == "/contatos"
 
+@pytest.mark.parametrize(
+    ("name", "email", "username", "password", "message"),
+    (("", "", "", "", "Todos os campos são obrigatórios."),
+     ("test", "test@example.com", "Alice123", "test",
+      "Usuário Alice123 já está registrado!"),
+     ("test", "test@example.com", "Bob456", "test",
+      "Usuário Bob456 já está registrado!"))
+)
+def test_register_validate_input(client, auth, name, email,
+                                 username, password, message):
+    response = auth.register(name, email, username, password)
+    assert message in response.data.decode("utf-8")
 
+@pytest.mark.parametrize(
+    ("username", "password", "message"),
+    (("",         "",   "Todos os campos são obrigatórios."),
+     ("username", "",   "Todos os campos são obrigatórios."),
+     ("aaa",     "bbb", "Usuário e/ou senha estão incorretos."))
+)
+def test_login_validate_input(client, auth, username, password, message):
+    response = auth.login(username, password)
+    assert message in response.data.decode("utf-8")
