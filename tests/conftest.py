@@ -2,7 +2,7 @@ import os, tempfile, pytest
 from apptalk import create_app
 from apptalk.database import get_db, init_db
 
-@pytest.fixture
+@pytest.fixture(scope="module")
 def app():
     db_fd, db_path = tempfile.mkstemp()
     app = create_app({"TESTING": True, "DATABASE": db_path})

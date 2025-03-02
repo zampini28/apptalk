@@ -1,7 +1,4 @@
 import pytest
-from flask import g
-from flask import session
-
 from apptalk.database import get_db
 
 @pytest.mark.parametrize(
@@ -9,25 +6,31 @@ from apptalk.database import get_db
     (("Alice", "alice@example.com", "Alice123", "SuperSecretAlicePassword"),
      ("Bob", "Bob@example.com", "Bob456", "SuperSecretBobPassword"))
 )
-
 def test_register(client, auth, app, name, email, username, password):
     assert client.get("/cadastro").status_code == 200
 
     response = auth.register(name, email, username, password)
+
+    assert response.status_code == 302
     assert response.headers["Location"] == "/login"
 
     with app.app_context():
-        assert (get_db()
-                .execute(f"SELECT * FROM users WHERE username = '{username}'")
+        user = (get_db()
+                .execute("SELECT * FROM users WHERE username = ?", (username,))
                 .fetchone())
+        assert user and user["password"] != password
 
-def test_login(client, auth):
+@pytest.mark.parametrize(
+    ("username", "password"),
+    (("Alice123", "SuperSecretAlicePassword"),
+     ("Bob456", "SuperSecretBobPassword"))
+)
+def test_login(client, auth, username, password):
     assert client.get("/login").status_code == 200
 
-    #response = auth.login("Alice123", "SuperSecretAlicePassword")
-    #assert response.headers["Location"] == "/contatos"
+    response = auth.login(username, password)
 
-    #response = auth.login("Bob456", "SuperSecretBobPassword")
-    #assert response.headers["Location"] == "/contatos"
+    assert response.status_code == 302
+    assert response.headers["Location"] == "/contatos"
 
 
