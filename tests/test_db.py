@@ -1,9 +1,5 @@
-import sqlite3
-
-import pytest
-
+import sqlite3, pytest
 from apptalk.database import get_db
-
 
 def test_get_close_db(app):
     with app.app_context():
@@ -14,7 +10,6 @@ def test_get_close_db(app):
         db.execute("SELECT 1")
 
     assert "closed" in str(e.value)
-
 
 def test_init_db_command(runner, monkeypatch):
     class Recorder:
