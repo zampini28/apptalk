@@ -37,8 +37,9 @@ def signup():
 @bp.route("/login", methods=("GET", "POST"))
 def login():
     if request.method == "POST":
-        # hash_pw - user - pw
         username, password = request.form["username"], request.form["password"]
+        if not all((username, password)):
+            flash("Todos os campos são obrigatórios.")
         user = get_db().execute(SQL_SELECT_USER, (username,)).fetchone()
         if not user or not checkpw(user["password"], username, password):
             flash("Usuário e/ou senha estão incorretos.")
