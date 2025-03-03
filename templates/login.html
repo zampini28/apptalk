@@ -2,7 +2,8 @@
 
 {% block head %}
 <title>Login</title>
-<link rel=stylesheet type=text/css href="{{ url_for('static', filename='main.css') }}">
+<link rel=stylesheet type=text/css
+      href="{{ url_for('static', filename='main.css') }}">
 {% endblock %}
 
 {% block body %}
@@ -19,8 +20,13 @@
 
   <form method=post>
     <div id="subcontainer" class="subcontainer">
-      <input name=username class="flow-input" type="text" placeholder="Usuário" autocomplete="on" spellcheck="false" title="Digite seu usuário" autofocus required id="username" value="" autocapitalize="none" autocorrect="off">
-      <input name=password class="flow-input" type="password" id="password" placeholder="Senha" autocomplete="current-password" spellcheck="false" title="Digite sua senha" value="" autocapitalize="no" autocorrect="off" required autofocus>
+      <input name=username class="flow-input" type="text" placeholder="Usuário"
+      autocomplete="on" spellcheck="false" title="Digite seu usuário" autofocus
+      required id="username" value="" autocapitalize="none" autocorrect="off">
+      <input name=password class="flow-input" type="password" id="password"
+      placeholder="Senha" autocomplete="current-password" spellcheck="false"
+      title="Digite sua senha" value="" autocapitalize="no" autocorrect="off"
+      required autofocus>
       <button class="commitForm disabled" id="commit">Enviar</button>
     </div>
   </form>
