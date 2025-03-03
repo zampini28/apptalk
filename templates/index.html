@@ -2,42 +2,41 @@
 
 {% block head %}
 <title>Home</title>
-<link rel=stylesheet href={{ url_for("static", filename="style.css") }}>
+<link rel=stylesheet href={{ url_for("static", filename="style.css" ) }}>
 {% endblock %}
 
 {% block body %}
-<header>
-
-</header>
-<main>
-
-</main>
-<footer>
-
-</footer>
-<div class=background-main>
-  <header class=header-main>
-    <div class=header-container>
-      <div class=area-logo>
-        <a href="">AppTalk</a> <!-- TODO: change it for an atually logo -->
-      </div>
+<header class=header-main>
+  <div class=header-container>
+    <div class=area-logo>
+      <a href="">AppTalk</a> <!-- TODO: change it for an atually logo -->
     </div>
+  </div>
+</header>
+<main class=background-main>
   <section class=main-display>
     <div class=title-container>
       <h1 class=title-text>AppTalk</h1>
     </div>
     <hr class=divider>
     <div class=sub-title-text-container>
-      <p class=sub-title-text>Um lugar para conversas significativas! Conecte-se com seus colegas e amigos, construa relações e aprofunde seus interesses.</p>
+      <p class=sub-title-text>Um lugar para conversas significativas! Conecte-se com seus colegas e amigos, construa
+        relações e aprofunde seus interesses.</p>
     </div>
     <div class=button-container>
-      <a id=login href=/login class=link>
+      <a id=login target="next" href=/login class=link>
         <span class=button-text>Login</span>
       </a>
-      <a id=signup href=/cadastro class=link>
+      <a id=signup target="next" href=/cadastro class=link>
         <span class=button-text>Cadastre-se</span>
       </a>
     </div>
   </section>
-</div>
+</main>
+<footer class=footer-main>
+  <div class=div-footer>
+    <p class=title-footer>&copy; 2025 - Todos direitos reservados à AppTalk </p>
+  </div>
+
+</footer>
 {% endblock %}
