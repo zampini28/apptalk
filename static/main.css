@@ -1,7 +1,8 @@
 @font-face {
-  font-family: 'Geist';
-  src: url('GeistVF.ttf') format('truetype')
+    font-family: 'Geist';
+    src: url('GeistVF.ttf') format('truetype')
 }
+
 :root {
     /*
     --bg-color: #d6f4ff;
@@ -22,7 +23,7 @@
     --bnt-color-not: #046ee5;
     --bg-color: #111111;
     --user-input-color: whitesmoke;
-    --sub-bg-color: #232323;
+    --sub-bg-color: #232323cd;
     --bnt-disable-color: #a1a1a1;
     --bnt-color: #a1a1a1;
     --input-bg-color: #373737;
@@ -35,14 +36,16 @@
 
     --disable-text-color: #0a0a0a;
 }
+
 * {
     padding: 0;
     margin: 0;
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
-  
-body, html {
-  background-color: var(--bg-color);
+
+body,
+html {
+    background-color: var(--bg-color);
 }
 
 body {
@@ -54,34 +57,68 @@ body {
     /* background-color: #96C9DC; */
     /* background-color: var(--bg-color); */
     font-family: 'Geist';
-} 
-   
+}
+
 .container {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     gap: 10px;
+    width: 100vw;
     height: 100vh;
+    background-color: #F2F4CB;
 }
-  
-.subcontainer {
-    display: flex;
+
+.subcontainer-form {
+    display: block;
     background-color: var(--sub-bg-color);
-    max-width: 350px;
-    padding: 20px;
-    border-radius: 5px;
-    width: 100%;
+    height: 600px;
+    width: 900px;
+    position: relative;
+    border-radius: 15px;
+    /*max-width: 350px;*/
+    /*border-radius: 5px;
     box-shadow: 0 1px 2px #0003;
-    flex-direction: column;
+    /*flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 15px;
-    box-shadow: rgba(0, 0, 0, 0.3) 0 4px 8px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 4px 8px;*/
 }
-  
+
+.container-form {
+    width: 180px;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY( -50%);
+
+}
+
+#container-image-login {
+    width: 550px;
+    height: 600px;
+    position: relative;
+    float: right;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+#imagem-login {
+    width: 550px;
+    height: 600px;
+    background-size: cover;
+    display: block;
+    float: right;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
 .flow-input {
-    outline: none;
+    display: inline;
+    /*outline: none;*/
     padding: 16px 20px;
     width: 100%;
     border-radius: 5px;
@@ -89,37 +126,38 @@ body {
     background-color: var(--input-bg-color);
     border: none;
     color: var(--user-input-color);
+    margin-bottom: 20px;
 }
-  
+
 .flow-input:focus {
     outline: var(--bnt-color) solid 2px;
 }
-  
+
 .title-header {
     font-size: 18px;
     font-weight: 600;
     color: var(--default-text-color);
 }
-  
+
 a {
     text-decoration: none;
     color: var(--default-text-color);
 }
-  
+
 .err-msg {
     font-size: var(--default-text-color);
     color: var(--error-text-color);
 }
-  
+
 .text-registrar {
     font-size: 16px;
     color: var(--default-text-color);
 }
-  
+
 .link-registrar {
     cursor: pointer;
 }
-  
+
 .commitForm {
     padding: 16px 29px;
     outline: none;
@@ -134,7 +172,7 @@ a {
     max-width: 350px;
     transition: 0.3s;
 }
-  
+
 .disabled {
     background: var(--bnt-disable-color);
     padding: 16px 29px;
@@ -156,7 +194,7 @@ a {
     box-shadow: rgba(0, 0, 0, 0.8) 0 8px 24px;
     color: var(--commitForm-on-text-color);
 }
-  
+
 .commitForm:active {
     border-color: rgba(0, 0, 0, 0.15);
     border: initial;
@@ -164,7 +202,13 @@ a {
     color: rgba(0, 0, 0, 0.65);
     transform: translateY(0);
 }
-  
-  
-  
-  /* https://getcssscan.com/css-buttons-examples */
+
+#text-main-login {
+    color: #8D99AE;
+    font-size: 3em;
+    font-family: 'Geist', 'sans-serif';
+}
+
+
+
+/* https://getcssscan.com/css-buttons-examples */
