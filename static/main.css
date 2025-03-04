@@ -21,9 +21,9 @@
     --bg-color-not: #d6f4ff;
     --bnt-disable-color-not: #46abe5b0;
     --bnt-color-not: #046ee5;
-    --bg-color: #111111;
+    --bg-color: white;
     --user-input-color: whitesmoke;
-    --sub-bg-color: #232323cd;
+    --sub-bg-color: #232323c0;
     --bnt-disable-color: #a1a1a1;
     --bnt-color: #a1a1a1;
     --input-bg-color: #373737;
@@ -59,6 +59,21 @@ body {
     font-family: 'Geist';
 }
 
+#div-login-title {
+    text-align: center;
+}
+
+#text-main-login {
+    color: #8D99AE;
+    font-size: 3em;
+    font-family: 'Geist', 'sans-serif';
+    margin: auto;
+}
+
+.sub-title-text {
+    color: #8D99AE;
+}
+
 .container {
     display: flex;
     align-items: center;
@@ -67,7 +82,8 @@ body {
     gap: 10px;
     width: 100vw;
     height: 100vh;
-    background-color: #F2F4CB;
+    /*#01BB27 #01bb2661*/
+    background-image: linear-gradient(to top, #B4E1FF, #b4e1ff78 60%);
 }
 
 .subcontainer-form {
@@ -77,6 +93,7 @@ body {
     width: 900px;
     position: relative;
     border-radius: 15px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.116);
     /*max-width: 350px;*/
     /*border-radius: 5px;
     box-shadow: 0 1px 2px #0003;
@@ -93,7 +110,7 @@ body {
     position: absolute;
     top: 50%;
     left: 10%;
-    transform: translateY( -50%);
+    transform: translateY(-50%);
 
 }
 
@@ -203,11 +220,7 @@ a {
     transform: translateY(0);
 }
 
-#text-main-login {
-    color: #8D99AE;
-    font-size: 3em;
-    font-family: 'Geist', 'sans-serif';
-}
+
 
 
 
