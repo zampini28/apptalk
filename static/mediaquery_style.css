@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+@media screen and (min-width: 600px) and (max-width: 768px) {
+    body {
+        background-position: top center;
+    }
+
+    .footer-main {
+        height: 10vh;
+        background-color: green;
+      }
+
+      .title-footer {
+        padding-top: 5vh;
+        font-size: small;
+        text-align: center;
+        color: green;
+      }
+}

@@ -2,7 +2,9 @@
 
 {% block head %}
 <title>Home</title>
+<link rel="stylesheet" media="screen" href={{ url_for("static", filename="mediaquery_style.css" ) }}>
 <link rel=stylesheet href={{ url_for("static", filename="style.css" ) }}>
+
 {% endblock %}
 
 {% block body %}
