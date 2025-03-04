@@ -63,11 +63,23 @@ body {
     text-align: center;
 }
 
+#div-signup-title {
+    text-align: center;
+    width: 600px;
+}
+
 #text-main-login {
     color: #8D99AE;
-    font-size: 3em;
+    font-size: 2.5em;
     font-family: 'Geist', 'sans-serif';
-    margin: auto;
+    margin-bottom: 20px;
+}
+
+#text-main-signup {
+    color: #8D99AE;
+    font-size: 2.5em;
+    font-family: 'Geist', 'sans-serif';
+    margin-bottom: 20px;
 }
 
 .sub-title-text {
@@ -104,12 +116,22 @@ body {
     box-shadow: rgba(0, 0, 0, 0.3) 0 4px 8px;*/
 }
 
-.container-form {
-    width: 180px;
+.container-form-login {
+    width: 300px;
     height: 200px;
     position: absolute;
     top: 50%;
-    left: 10%;
+    left: 3%;
+    transform: translateY(-50%);
+
+}
+
+.container-form-signup {
+    width: 300px;
+    height: 200px;
+    position: absolute;
+    top: 40%;
+    left: 8%;
     transform: translateY(-50%);
 
 }
@@ -123,8 +145,27 @@ body {
     border-bottom-right-radius: 15px;
 }
 
+#container-image-signup {
+    width: 550px;
+    height: 600px;
+    position: relative;
+    float: right;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
 #imagem-login {
     width: 550px;
+    height: 600px;
+    background-size: cover;
+    display: block;
+    float: right;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+#imagem-signup {
+    width: 450px;
     height: 600px;
     background-size: cover;
     display: block;
