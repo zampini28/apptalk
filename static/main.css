@@ -75,6 +75,7 @@ body {
     font-size: 2.5em;
     font-family: 'Geist', 'sans-serif';
     margin-bottom: 20px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.119);
 }
 
 #text-main-signup {
@@ -82,10 +83,12 @@ body {
     font-size: 2.5em;
     font-family: 'Geist', 'sans-serif';
     margin-bottom: 20px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.119);
 }
 
 .sub-title-text {
     color: #8D99AE;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.067);
 }
 
 .container {
