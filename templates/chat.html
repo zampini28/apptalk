@@ -28,8 +28,20 @@ body {
   padding: 20px;
 }
 
-h2 {
-  font-size: 20px;
+.chat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #101418;
+}
+
+.sidebar > div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
   margin-bottom: 20px;
 }
 
@@ -43,7 +55,7 @@ h2 {
   cursor: pointer;
 }
 
-.contact.selected {
+.contact:hover {
   background-color: #3a434c;
 }
 
@@ -56,12 +68,6 @@ h2 {
   margin-right: 10px;
 }
 
-.chat {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  background-color: #101418;
-}
 
 .chat-header {
   display: flex;
@@ -93,21 +99,48 @@ h2 {
   outline: none;
 }
 
+.add-contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #161D24;
+}
+
+.add-contact > span > img {
+  width: 10px;
+  height: 10px;
+}
+
+.unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
     </style>
   </head>
   <body>
     <div class=container>
       <div class=sidebar>
-        <h2>Contatos</h2>
-        <div class="contact selected">
+        <div><h1>Contatos</h1></div>
+        <div onclick=private_chat('Alice') class=contact>
           <div class=avatar></div>
           <span>Alice</span>
         </div>
-        <div class=contact>
+        <div onclick=private_chat('Bod') class=contact>
           <div class=avatar></div>
           <span>Bob</span>
         </div>
+
+        <div onclick="action()" class="contact unselectable add-contact">
+          <span>
+            <img src=plus-sign.svg>
+          </span>
+        </div>
       </div>
+
       <div class=chat>
         <div class=chat-header>
           <div class=avatar></div>
@@ -118,7 +151,17 @@ h2 {
           <input placeholder="Digite uma mensagem">
         </div>
       </div>
+
     </div>
+          <script>
+            function action() {
+              alert("página de adionar de contatos")
+            }
+
+            function private_chat(name) {
+              alert("conversa privada com " + name)
+            }
+          </script>
   </body>
 </html>
 
