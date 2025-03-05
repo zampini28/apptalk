@@ -1,19 +1,52 @@
 @charset "UTF-8";
 
-@media screen and (min-width: 600px) and (max-width: 768px) {
-    body {
-        background-position: top center;
-    }
+@media screen and (min-width: 320px) and (max-width: 768px) {
 
-    .footer-main {
-        height: 10vh;
-        background-color: green;
-      }
+  body {
+    background-position: top center;
 
-      .title-footer {
-        padding-top: 5vh;
-        font-size: small;
-        text-align: center;
-        color: green;
-      }
+  }
+
+  /*header.header-main {
+    padding: 10px;
+  }*/
+
+  header.header-main>div.header-container {
+    height: 10vh;
+    padding: 0px;
+  }
+
+  div.area-logo>a {
+    font-size: 25px;
+    padding: 10px;
+  }
+
+  h1.title-text {
+    font-size: 38px;
+  }
+
+  div.title-container {
+    height: 15vh;
+  }
+
+  div.sub-title-text-container {
+    height: 30vh;
+  }
+
+  p.sub-title-text {
+    font-size: 14px;
+  }
+
+  hr.divider {
+    margin: 1.2rem auto;
+  }
+
+  a.link {
+    width: 130px;
+    height: 40px;
+  }
+
+  span.button-text {
+    font-size: 13px;
+  }
 }
