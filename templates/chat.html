@@ -148,7 +148,7 @@ h1 {
         </div>
         <div class=chat-window></div>
         <div class=chat-input>
-          <input placeholder="Digite uma mensagem">
+          <input id=messenger onkeypress=click_press(event) placeholder="Digite uma mensagem">
         </div>
       </div>
 
@@ -160,6 +160,15 @@ h1 {
 
             function private_chat(name) {
               alert("conversa privada com " + name)
+            }
+
+            function click_press(event) {
+              if (event.key == "Enter") {
+                  alert("envio de mensagem")
+                  const messenger = document.getElementById("messenger")
+                  messenger.value = ""
+
+              }
             }
           </script>
   </body>
