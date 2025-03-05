@@ -1,9 +1,124 @@
-{% extends "_base.html" %}
+<!DOCTYPE html>
+<html lang=pt-BR>
+  <head>
+    <meta charset=UTF-8>
+    <meta name=viewport content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-{% block head %}
-<title>Chat</title>
-{% endblock %}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #12181f;
+  color: white;
+}
 
-{% block body %}
-<h1>Chat</h1>
-{% endblock %}
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 25%;
+  background-color: #1e252d;
+  padding: 20px;
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #283038;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact.selected {
+  background-color: #3a434c;
+}
+
+.contact .avatar,
+.chat-header .avatar {
+  width: 40px;
+  height: 40px;
+  background-color: #c7d2e0;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.chat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #101418;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  background-color: #1e252d;
+  padding: 15px;
+}
+
+.chat-window {
+  flex: 1;
+}
+
+.chat-input {
+  background-color: #1e252d;
+  padding: 10px;
+}
+
+.chat-input input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #283038;
+  color: white;
+  font-size: 16px;
+}
+
+.chat-input input:focus {
+  outline: none;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class=container>
+      <div class=sidebar>
+        <h2>Contatos</h2>
+        <div class="contact selected">
+          <div class=avatar></div>
+          <span>Alice</span>
+        </div>
+        <div class=contact>
+          <div class=avatar></div>
+          <span>Bob</span>
+        </div>
+      </div>
+      <div class=chat>
+        <div class=chat-header>
+          <div class=avatar></div>
+          <span>Alice</span>
+        </div>
+        <div class=chat-window></div>
+        <div class=chat-input>
+          <input placeholder="Digite uma mensagem">
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
