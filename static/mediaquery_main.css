@@ -5,21 +5,36 @@
         height: 20vh;
     }
 
+    div#div-signup-title {
+        height: 20vh;
+        width: 310px;
+    }
+
     h2#text-main-login {
         font-size: 2em;
     }
 
+    h2#text-main-signup {
+        font-size: 1.9em;
+    }
+
     p.sub-title-text {
         font-size: 0.9em;
+        width: 320px;
     }
 
     div.subcontainer-form {
-        height: 350px;
+        height: 390px;
         width: 300px;
     }
 
     form.container-form-login {
         width: 280px;
+    }
+
+    form.container-form-signup {
+        width: 280px;
+        left: 3%;
     }
 
     input.flow-input {
@@ -31,6 +46,10 @@
     }
 
     div#container-image-login {
+        display: none;
+    }
+
+    div#container-image-signup {
         display: none;
     }
 }
@@ -49,12 +68,17 @@
     }
 
     div.subcontainer-form {
-        height: 350px;
+        height: 390px;
         width: 580px;
     }
 
     form.container-form-login {
         width: 190px;
+    }
+
+    form.container-form-signup {
+        width: 250px;
+        left: 3%;
     }
 
     input.flow-input {
@@ -67,12 +91,22 @@
 
     div#container-image-login {
         width: 360px;
-        height: 350px;
+        height: 390px;
     }
 
     img#imagem-login {
         width: 360px;
-        height: 350px;
+        height: 390px;
+    }
+
+    div#container-image-signup {
+        width: 290px;
+        height: 390px;
+    }
+
+    img#imagem-signup {
+        width: 290px;
+        height: 390px;
     }
 }
 
