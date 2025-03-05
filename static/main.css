@@ -86,6 +86,10 @@ body {
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.119);
 }
 
+#errorlabel {
+    display: none;
+}
+
 .sub-title-text {
     color: #8D99AE;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.067);
