@@ -1,44 +1,56 @@
 {% extends "_base.html" %}
 
 {% block head %}
-<title>Cadastro</title>
-<link rel=stylesheet type=text/css
-      href="{{ url_for('static', filename='main.css') }}">
+<title>AppTalk - Pagína de Cadastro</title>
+<link rel="shortcut icon" href="/static/favicon/favicon-32x32.png" type="image/x-icon">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='mediaquery_main.css') }}">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='main.css') }}">
+<script src = " https://unpkg.com/sweetalert/dist/sweetalert.min.js " > </script>
 {% endblock %}
 
 {% block body %}
 
-<div class="container">
+<main class="container">
 
   {% with messages = get_flashed_messages() %}
   {% if messages %}
   {% for message in messages %}
   <p id="errorlabel" class="title-header" style="color: red;">{{ message }}</p>
-  {% endfor  %}
-  {% endif  %}
-  {% endwith  %}
+  <script>
+    var textAlert = window.document.getElementById("errorlabel");
+    swal({
+      title: "Erro",
+      text: textAlert.innerText,
+      icon: "error",
+    });
+  </script> 
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
 
-  <form method=post>
-    <div id="subcontainer" class="subcontainer">
-      <input name=name class="flow-input" type="text"
-      placeholder="Nome completo" autocomplete="on" spellcheck="false"
-      title="Digite seu nome completo" autofocus required id="name"
-      value="" autocapitalize="on" autocorrect="off">
-      <input name=email class="flow-input" type="email" id="email"
-      placeholder="Endereço de email" autocomplete="on" spellcheck="false"
-      title="Digite seu email" value="" autocapitalize="no" autocorrect="off"
-      required autofocus>
-      <input name=username class="flow-input" type="text" placeholder="Usuário"
-      autocomplete="on" spellcheck="false" title="Digite seu usuário" autofocus
-      required id="username" value="" autocapitalize="none" autocorrect="off">
-      <input name=password class="flow-input" type="password" id="password"
-      placeholder="Senha" autocomplete="current-password" spellcheck="false" 
-      title="Digite sua senha" value="" autocapitalize="no" autocorrect="off"
-      required autofocus>
+  <div id="div-signup-title">
+    <h2
+    id="text-main-signup">Cadastre-se</h2>
+    <p class=sub-title-text>Junte-se aos seus amigos! crie uma conta e mande mensagens a pessoas proximas com segurança de ponta a ponta.</p>
+  </div>
+  <div id="subcontainer" class="subcontainer-form">
+    <form method=post class="container-form-signup">
+      <input name=name class="flow-input" type="text" placeholder="Nome completo" autocomplete="on" spellcheck="false"
+        title="Digite seu nome completo" autofocus required id="name" value="" autocapitalize="on" autocorrect="off">
+      <input name=email class="flow-input" type="email" id="email" placeholder="Endereço de email" autocomplete="on"
+        spellcheck="false" title="Digite seu email" value="" autocapitalize="no" autocorrect="off" required autofocus>
+      <input name=username class="flow-input" type="text" placeholder="Usuário" autocomplete="on" spellcheck="false"
+        title="Digite seu usuário" autofocus required id="username" value="" autocapitalize="none" autocorrect="off">
+      <input name=password class="flow-input" type="password" id="password" placeholder="Senha"
+        autocomplete="current-password" spellcheck="false" title="Digite sua senha" value="" autocapitalize="no"
+        autocorrect="off" required autofocus>
       <button class="commitForm disabled" id="commit">Enviar</button>
+    </form>
+    <div id="container-image-signup">
+      <img id="imagem-signup" src="../static/images/image-signup.jpg" alt="Imagem Signup">
     </div>
-  </form>
-</div>
+  </div>
+</main>
 
 
 

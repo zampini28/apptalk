@@ -1,37 +1,52 @@
 {% extends "_base.html" %}
 
 {% block head %}
-<title>Login</title>
-<link rel=stylesheet type=text/css
-      href="{{ url_for('static', filename='main.css') }}">
+<title>AppTalk - Entrar</title>
+<link rel="shortcut icon" href="/static/favicon/favicon-32x32.png" type="image/x-icon">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='mediaquery_main.css') }}">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='main.css') }}">
+<script src = " https://unpkg.com/sweetalert/dist/sweetalert.min.js " > </script>
 {% endblock %}
 
 {% block body %}
-
-<div class="container">
-
+<main class="container">
   {% with messages = get_flashed_messages() %}
   {% if messages %}
   {% for message in messages %}
-  <p id="errorlabel" class="title-header" style="color: red;">{{ message }}</p>
-  {% endfor  %}
-  {% endif  %}
-  {% endwith  %}
+  <p id="errorlabel" class="title-header" on style="color: red;">{{ message }}</p>
+  
+  <script>
+    var textAlert = window.document.getElementById("errorlabel");
+    swal({
+      title: "Erro",
+      text: textAlert.innerText,
+      icon: "error",
+    });
+  </script> 
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+  <div id="div-login-title">
+    <h2 id="text-main-login">
+      Login
+    </h2>
+    <p class=sub-title-text>Não perca tempo! conecte-se com as pessoas que mais ama</p>
+  </div>
 
-  <form method=post>
-    <div id="subcontainer" class="subcontainer">
-      <input name=username class="flow-input" type="text" placeholder="Usuário"
-      autocomplete="on" spellcheck="false" title="Digite seu usuário" autofocus
-      required id="username" value="" autocapitalize="none" autocorrect="off">
-      <input name=password class="flow-input" type="password" id="password"
-      placeholder="Senha" autocomplete="current-password" spellcheck="false"
-      title="Digite sua senha" value="" autocapitalize="no" autocorrect="off"
-      required autofocus>
+  <div id="subcontainer" class="subcontainer-form">
+    <form method=post class="container-form-login">
+      <input name=username class="flow-input" type="text" placeholder="Usuário" autocomplete="on" spellcheck="false"
+        title="Digite seu usuário" autofocus required id="username" value="" autocapitalize="none" autocorrect="off">
+      <input name=password class="flow-input" type="password" id="password" placeholder="Senha"
+        autocomplete="current-password" spellcheck="false" title="Digite sua senha" value="" autocapitalize="no"
+        autocorrect="off" required autofocus>
       <button class="commitForm disabled" id="commit">Enviar</button>
+    </form>
+    <div id="container-image-login">
+      <img id="imagem-login" src="../static/images/imagem-login-pq.jpg" alt="Imagem Login">
     </div>
-  </form>
-</div>
-
-
-
+  </div>
+</main>
+<footer>
+</footer>
 {% endblock %}

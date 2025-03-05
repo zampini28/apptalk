@@ -31,7 +31,7 @@ def test_login(client, auth, username, password):
     response = auth.login(username, password)
 
     assert response.status_code == 302
-    assert response.headers["Location"] == "/contatos"
+    assert response.headers["Location"] == "/chat"
 
 @pytest.mark.parametrize(
     ("name", "email", "username", "password", "message"),

@@ -43,9 +43,9 @@ def login():
         user = get_db().execute(SQL_SELECT_USER, (username,)).fetchone()
         if not user or not checkpw(user["password"], username, password):
             flash("Usuário e/ou senha estão incorretos.")
-        else: return redirect(url_for("main.contacts"))
+        else: return redirect(url_for("main.chat"))
     return render_template("login.html")
 
 
-@bp.route("/contatos")
-def contacts(): return render_template("contacts.html")
+@bp.route("/chat")
+def chat(): return render_template("chat.html")
