@@ -8,8 +8,9 @@ def create_app(test_config=None):
                 static_folder   = os.path.join(os.getcwd(), "static"))
 
     app.config.from_mapping(
-        SECRET_KEY = secrets.token_hex(),
-        DATABASE   = os.path.join(app.instance_path, "apptalk.sqlite"),
+        SECRET_KEY     = secrets.token_hex(),
+        DATABASE       = os.path.join(app.instance_path, "apptalk.sqlite"),
+        JWT_SECRET_KEY = secrets.token_hex(),
     )
 
     if test_config: app.config.update(test_config)
