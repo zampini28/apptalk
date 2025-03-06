@@ -1,6 +1,8 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
+from flask import make_response
 from .database import get_db
 from .encryption import hashpw, checkpw
+from .token import create_tokens, token_required
 from uuid import uuid4
 
 bp = Blueprint("main", __name__)
@@ -43,9 +45,20 @@ def login():
         user = get_db().execute(SQL_SELECT_USER, (username,)).fetchone()
         if not user or not checkpw(user["password"], username, password):
             flash("Usuário e/ou senha estão incorretos.")
-        else: return redirect(url_for("main.chat"))
+        else:
+            access_token, refresh_token = create_tokens(user["id"])
+
+            response = redirect(url_for("main.chat"))
+            response.set_cookie("access_token", access_token, secure=True,
+                                httponly=True, samesite='strict')
+            response.set_cookie("refresh_token", refresh_token, secure=True,
+                                httponly=True, samesite='strict')
+
+            return response
     return render_template("login.html")
 
 
 @bp.route("/chat")
-def chat(): return render_template("chat.html")
+@token_required
+def chat():
+    return make_response(render_template("chat.html"))
