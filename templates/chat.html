@@ -1,124 +1,73 @@
 <!DOCTYPE html>
 <html lang=pt-BR>
-  <head>
-    <meta charset=UTF-8>
-    <meta name=viewport content="width=device-width, initial-scale=1.0">
-    <title>Chat</title>
-    <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: #12181f;
-  color: white;
-}
+<head>
+  <meta charset=UTF-8>
+  <meta name=viewport content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/static/favicon/favicon-32x32.png" type="image/x-icon">
+  <link rel="stylesheet" href="/static/chat_style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>AppTalk - Página de Mensagens</title>
+</head>
 
-.container {
-  display: flex;
-  height: 100vh;
-}
+<body>
 
-.sidebar {
-  width: 25%;
-  background-color: #1e252d;
-  padding: 20px;
-}
-
-h2 {
-  font-size: 20px;
-  margin-bottom: 20px;
-}
-
-.contact {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  background-color: #283038;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.contact.selected {
-  background-color: #3a434c;
-}
-
-.contact .avatar,
-.chat-header .avatar {
-  width: 40px;
-  height: 40px;
-  background-color: #c7d2e0;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-
-.chat {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  background-color: #101418;
-}
-
-.chat-header {
-  display: flex;
-  align-items: center;
-  background-color: #1e252d;
-  padding: 15px;
-}
-
-.chat-window {
-  flex: 1;
-}
-
-.chat-input {
-  background-color: #1e252d;
-  padding: 10px;
-}
-
-.chat-input input {
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: #283038;
-  color: white;
-  font-size: 16px;
-}
-
-.chat-input input:focus {
-  outline: none;
-}
-
-    </style>
-  </head>
-  <body>
-    <div class=container>
-      <div class=sidebar>
-        <h2>Contatos</h2>
-        <div class="contact selected">
-          <div class=avatar></div>
-          <span>Alice</span>
-        </div>
-        <div class=contact>
-          <div class=avatar></div>
-          <span>Bob</span>
-        </div>
+  <div class=container>
+    <div class="container-perfil">
+      <h3 class="current-user">Perfil</h3>
+      <span id="current-avatar" class="material-icons">
+        account_circle
+      </span>
+      <span id="icon-settings" class="material-icons">
+        settings
+      </span>
+      <span id="icon-menu" class="material-icons">
+        menu
+      </span>
+    </div>
+    <div class=sidebar>
+      <div class="search-user">
+        <p class="text-box-search">Pesquisar</p>
       </div>
-      <div class=chat>
-        <div class=chat-header>
-          <div class=avatar></div>
-          <span>Alice</span>
-        </div>
-        <div class=chat-window></div>
-        <div class=chat-input>
-          <input placeholder="Digite uma mensagem">
-        </div>
+      <h2>Contatos</h2>
+      <div class="contact selected">
+        <span id="avatar" class="material-icons">
+          account_circle
+        </span>
+        <span>Alice</span>
+      </div>
+      <div class=contact>
+        <span id="avatar" class="material-icons">
+          account_circle
+        </span>
+        <span>Bob</span>
       </div>
     </div>
-  </body>
-</html>
+    <div class=chat>
+      <div class=chat-header>
+        <span id="avatar" class="material-icons">
+          account_circle
+        </span>
+        <span>Alice</span>
+        <span id="icon-videocam" class="material-icons">
+          videocam
+        </span>
+      </div>
+      <div class=chat-window></div>
+      <div class=chat-input>
+        <input placeholder="Digite uma mensagem">
+        <span id="icon-add" class="material-icons">
+          add
+        </span>
+        <span id="icon-cam" class="material-icons">
+          photo_camera
+        </span>
+        <span id="icon-mic" class="material-icons">
+          mic
+        </span>
+      </div>
+    </div>
+  </div>
+</body>
 
+</html>

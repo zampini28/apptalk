@@ -1,0 +1,166 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+body {
+    font-family: Arial, sans-serif;
+    background-color: #12181f;
+    color: white;
+}
+  
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.container-perfil {
+    width: 8%;
+    padding:5;
+}
+
+.current-user {
+    text-align: center;
+    padding: 10px;
+}
+  
+.sidebar {
+    width: 25%;
+    background-color: #1e252d;
+    padding: 20px;
+    border: #c7d2e0 0.2px solid;
+}
+
+.search-user {
+    width: 98%;
+    height: 40px;
+    background-color: #283038;
+    border: #c7d2e0 1px solid;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.text-box-search {
+    color: #c7d2e0;
+    margin-top: 10px;
+    padding-left: 10px;
+}
+  
+h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+  
+.contact {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #283038;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+  
+.contact.selected {
+    background-color: #3a434c;
+}
+
+#current-avatar {
+    position: absolute;
+    left: 3%;
+    font-size: 40px;
+}
+
+#avatar {
+    font-size: 40px;
+    padding-right: 10px;
+}
+  
+.contact .avatar,
+.chat-header .avatar {
+    width: 40px;
+    height: 40px;
+    background-color: #c7d2e0;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+  
+.chat {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /* background-color: #101418; */
+    /*background-image:  linear-gradient(to left top, orange, #B4E1FF, pink)*/
+    background: url(images/background_chat.jpg) right center no-repeat fixed;
+    background-size: cover;
+}
+  
+.chat-header {
+    display: flex;
+    align-items: center;
+    background-color: #1e252dbf;
+    padding: 15px;
+}
+  
+.chat-window {
+    flex: 1;
+
+    /* background: url(images/bg_stars.jpg) right center no-repeat fixed;
+    background-size: cover; */
+}
+  
+.chat-input {
+    background-color: #1e252dcd;
+    padding: 10px;
+}
+  
+.chat-input input {
+    width: 85%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #283038;
+    color: white;
+    font-size: 16px;
+    border: #c7d2e0 0.2px solid;
+    border-radius: 20px;
+}
+
+#icon-settings {
+    position: absolute;
+    top: 80%;
+    left: 3%;
+    font-size: 30px;
+}
+
+#icon-menu {
+    position: absolute;
+    top: 85%;
+    left: 3%;
+    font-size: 30px;
+}
+
+#icon-videocam {
+    position: absolute;
+    left: 95%;
+    font-size: 30px;
+}
+
+#icon-add {
+   padding: 5px;
+}
+
+#icon-cam {
+   padding: 5px;
+}
+
+ #icon-mic {
+   padding: 5px;
+}
+  
+.chat-input input:focus {
+    outline: none;
+}
