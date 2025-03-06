@@ -1,9 +1,74 @@
-{% extends "_base.html" %}
+<!DOCTYPE html>
+<html lang=pt-BR>
 
-{% block head %}
-<title>Chat</title>
-{% endblock %}
+<head>
+  <meta charset=UTF-8>
+  <meta name=viewport content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/static/favicon/favicon-32x32.png" type="image/x-icon">
+  <link rel="stylesheet" href="/static/chat_style.css">
+  <link rel="stylesheet" href="/static/mediaquery_chat_style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>AppTalk - Página de Mensagens</title>
+</head>
 
-{% block body %}
-<h1>Chat</h1>
-{% endblock %}
+<body>
+
+  <div class=container>
+    <div class="container-perfil">
+      <h3 class="current-user">Perfil</h3>
+      <span id="current-avatar" class="material-icons">
+        account_circle
+      </span>
+      <span id="icon-settings" class="material-icons">
+        settings
+      </span>
+      <span id="icon-menu" class="material-icons">
+        menu
+      </span>
+    </div>
+    <div class=sidebar>
+      <div class="search-user">
+        <p class="text-box-search">Pesquisar</p>
+      </div>
+      <h2>Contatos</h2>
+      <div class="contact selected">
+        <span id="avatar" class="material-icons">
+          account_circle
+        </span>
+        <span>Alice</span>
+      </div>
+      <div class=contact>
+        <span id="avatar" class="material-icons">
+          account_circle
+        </span>
+        <span>Bob</span>
+      </div>
+    </div>
+    <div class=chat>
+      <div class=chat-header>
+        <span id="avatar" class="material-icons">
+          account_circle
+        </span>
+        <span>Alice</span>
+        <span id="icon-videocam" class="material-icons">
+          videocam
+        </span>
+      </div>
+      <div class=chat-window></div>
+      <div class=chat-input>
+        <input placeholder="Digite uma mensagem">
+        <span id="icon-add" class="material-icons">
+          add
+        </span>
+        <span id="icon-cam" class="material-icons">
+          photo_camera
+        </span>
+        <span id="icon-mic" class="material-icons">
+          mic
+        </span>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
