@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+@media screen and (min-width: 320px) and (max-width: 600px) {
+    div.container-perfil {
+        display: none;
+    }
+
+    div.sidebar {
+        width: 30%;
+    }
+
+    div.chat {
+        width: 68%;
+    }
+
+    span#icon-videocam {
+        left: 90%;
+    }
+
+    .chat-input input {
+        width: 65%;
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 768px) {
+    div.container-perfil {
+        display: none;
+    }
+
+    div.sidebar {
+        width: 30%;
+    }
+
+    div.chat {
+        width: 68%;
+    }
+
+    span#icon-videocam {
+        left: 90%;
+    }
+
+    .chat-input input {
+        width: 70%;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    div.chat {
+        width: 70%;
+    }
+
+    div.sidebar {
+        width: 20%;
+    }
+
+    div.container-perfil {
+        width: 10%;
+    }
+
+    .chat-input input {
+        width: 75%;
+    }
+}
