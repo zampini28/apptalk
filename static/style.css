@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 @font-face {
   font-family: 'Geist';
   src: url('GeistVF.ttf') format('truetype')
@@ -19,7 +21,7 @@
   --white-text: #ededed;
   --black-text: #0A0A0A;
 
-  --gray-text: #A1A1A1;
+  --gray-text: #cecece;
   --gray-text2: #888888;
 
   --ds-gray-1000-value: 0, 0%, 93%;
@@ -54,6 +56,10 @@ body {
   -webkit-text-size-adjust: 100%;
   background-color: var(--bg-color);
   height: 100vh;
+  background-image: url(images/background_image1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .header_main {
@@ -61,8 +67,8 @@ body {
   /* border-bottom: 1px solid var(--header-line-color); */
 }
 
-.header-main > .header-container {
-  height: 90px;
+.header-main>.header-container {
+  height: 10vh;
   display: flex;
   align-items: center;
   max-width: none;
@@ -74,7 +80,7 @@ body {
   margin: 0 auto;
 }
 
-.area-logo > a {
+.area-logo>a {
   display: block;
   color: var(--text-color);
   text-decoration: none;
@@ -91,10 +97,10 @@ body {
 
 .area-logo a:hover {
   color: #fff;
-  text-shadow: 
-  0 0 7px #fff,
-  0 0 10px #fff,
-  0 0 21px #fff;
+  text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff;
 }
 
 a {
@@ -112,6 +118,7 @@ a {
 .link:hover {
   background: #ccc;
 }
+
 .link {
   display: flex;
   align-items: center;
@@ -148,10 +155,11 @@ a {
 .main-display {
   padding-top: 90px;
   padding-bottom: 90px;
-  min-height: 88.3vh; 
+  min-height: 88.3vh;
+
 }
 
-.divider{
+.divider {
   height: 0.2rem;
   max-width: 3.25rem;
   margin: 1.5rem auto;
@@ -171,7 +179,7 @@ a {
   line-height: 1.5;
 }
 
-.sub-title-text-container { 
+.sub-title-text-container {
   padding: 0 48px;
   display: flex;
   align-items: center;
@@ -191,9 +199,9 @@ a {
   background-color: transparent;
   /* position: absolute; */
   /* position: unset; */
-  position: inherit;
+  position: relative;
   width: 100vw;
-  height: 100vh;
+  height: 80vh;
   max-width: 100vw;
   max-height: 300vh;
   overflow: hidden;
@@ -277,4 +285,20 @@ a {
   box-shadow: rgba(0, 0, 0, 0.3) 0 4px 8px;
   color: rgba(0, 0, 0, 0.65);
   transform: translateY(0);
+}
+
+.footer-main {
+  height: 10vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.div-footer {
+  height: 10vh;
+}
+
+.title-footer {
+  padding-top: 5vh;
+  font-size: small;
+  text-align: center;
+  color: var(--gray-text);
 }
